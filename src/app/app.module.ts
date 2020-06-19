@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatModule } from './cat/cat.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import { Interceptor } from './services/interceptor';
 
 @NgModule({
   declarations: [
@@ -11,10 +13,18 @@ import { CatModule } from './cat/cat.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     CatModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

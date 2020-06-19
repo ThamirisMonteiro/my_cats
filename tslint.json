@@ -1,6 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "no-trailing-whitespace":false,
     "align": {
       "options": [
         "parameters",
