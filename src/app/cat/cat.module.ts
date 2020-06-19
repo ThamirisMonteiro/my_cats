@@ -1,19 +1,20 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CatRoutingModule } from './cat-routing.module';
-import { CatComponent } from './cat.component';
-import { CatListComponent } from './cat-list/cat-list.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {CatRoutingModule} from './cat-routing.module';
+import {CatComponent} from './cat.component';
+import {CatListComponent} from './cat-list/cat-list.component';
 import { CatFormComponent } from './cat-form/cat-form.component';
-import { FormsModule } from '@angular/forms';
-import { CatRowComponent } from './cat-lost/cat-row/cat-row.component';
+import {FormsModule} from '@angular/forms';
+import { CatRowComponent } from './cat-list/cat-row/cat-row.component';
 
 
 @NgModule({
   declarations: [CatComponent, CatListComponent, CatFormComponent, CatRowComponent],
   imports: [
     CommonModule,
-    FormsModule,
-    CatRoutingModule
+    CatRoutingModule,
+    FormsModule
   ]
 })
 export class CatModule { }

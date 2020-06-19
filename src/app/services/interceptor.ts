@@ -1,20 +1,19 @@
-import { Injectable } from "@angular/core";
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable()
-export class Interceptor implements HttpInterceptor
-{
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        req = req.clone(
-            {
-                setHeaders:{
-                    'x-apikey': environment.apiKey
-                }
-            }
-        );
+export class Interceptor implements HttpInterceptor{
 
-        return next.handle(req);
-    }
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    req = req.clone({
+      setHeaders: {
+        'x-apikey': environment.apiKey
+      }
+    });
+
+    return next.handle(req);
+  }
+
 }

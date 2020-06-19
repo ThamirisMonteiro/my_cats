@@ -1,29 +1,11 @@
 <button [routerLink]="['add']">Add</button>
-<!--<table>
-    <thead>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Breed</th>
-        <th>Favourite Toy</th>
-        <th>Actions</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cat of catList">
-            <td>{{cat.name}}</td>
-            <td>{{cat.age}}</td>
-            <td>{{cat.breed}}</td>
-            <td>{{cat.favoriteToy}}</td>
-            <td><button [routerLink]="['edit/'+cat._id]">Edit</button>
-            <button (click)="delete(cat)">Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table>-->
+<table>
+  <ul>
+    <li *ngFor="let cat of catList">
+      <app-cat-row [cat]="cat"></app-cat-row>
+      <button [routerLink]="['edit/'+cat._id]">Edit</button>
+      <button (click)="delete(cat)">Delete</button>
+    </li>
+  </ul>
+</table>
 
-<ul>
-  <li *ngFor="let cat of catList">
-    <app-cat-row [cat]="cat"></app-cat-row>
-    <button [routerLink]="['edit/'+cat._id]">Edit</button>
-    <button (click)="delete(cat)">Delete</button>
-  </li>
-</ul>

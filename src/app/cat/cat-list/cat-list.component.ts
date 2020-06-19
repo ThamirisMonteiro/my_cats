@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CatService } from 'src/app/services/cat.service';
-import { Cat } from 'src/app/model/cat.model';
+import {CatService} from '../../services/cat.service';
+import {Cat} from '../../model/cat.model';
 
 @Component({
   selector: 'app-cat-list',
@@ -9,34 +9,34 @@ import { Cat } from 'src/app/model/cat.model';
 })
 export class CatListComponent implements OnInit {
 
-  public catList : Array<Cat>;
+  public catList: Array<Cat>;
 
-  constructor(private catService : CatService) {
-    this.catService.catDeleteEvent.subscribe((deletedCat : Cat)=>{
-      this.catList = this.catList.filter((cat : Cat)=>{
-        if(cat._id === deletedCat._id)
+  constructor(private catService: CatService) {
+    this.catService.catDeletedEvent.subscribe((deletedCat: Cat) => {
+      this.catList = this.catList.filter((cat: Cat) => {
+        if (cat._id === deletedCat._id){
           return false;
-        else
+        }else{
           return true;
+        }
       });
-    })
+    });
   }
 
-  ngOnInit(): void
-  {
+  ngOnInit(): void {
     this.catService.listCats()
-    .then((catListFromDb : Array<Cat>) =>
-    {this.catList = catListFromDb;})
-    .catch(e => console.error(e));
+      .then((catListFromDb: Array<Cat>) => {
+        this.catList = catListFromDb;
+      })
+      .catch(e => console.error(e));
   }
 
-  delete (cat : Cat) : void
-  {
+  delete(cat: Cat): void {
     this.catService.deleteCat(cat._id)
-    .then(() => {
-
-    })
-    .catch(e => console.error(e));
+      .then(() => {
+        this.catService.catDeletedEvent.emit(cat);
+      })
+      .catch(e => console.error(e));
   }
 
 }
