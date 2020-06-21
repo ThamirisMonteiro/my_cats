@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  serverBaseUrl: 'https://angularkt-aabe.restdb.io/rest',
-  apiKey: '5ee270ea4e6043315b0af9cb'
+  serverBaseUrl: 'https://angularcats-10d7.restdb.io/rest',
+  apiKey: '5eefb65182830d4ea06ca093'
 };
