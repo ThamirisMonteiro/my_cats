@@ -1,13 +1,23 @@
-<h2>Cat form</h2>
-<form>
-   <input type="text" placeholder="Name" [(ngModel)]="cat.name" name="name" /><br>
-   <input type="number" placeholder="Age" [(ngModel)]="cat.age" name="age"/><br>
-   <input type="text" placeholder="Breed" [(ngModel)]="cat.breed" name="breed"/><br>
-   <input type="text" placeholder="Favourite Toy" [(ngModel)]="cat.favoriteToy" name="favoriteToy"/>
-</form>
-
-<button (click)="save()">Save</button>
-
-{{cat | json}}
-<br/>
+<body>
+  <p><span><h2>Cat form</h2></span>
+    <div id="parent">
+     <form id="form">
+       <label>Name:<input type='text' [(ngModel)]="cat.name" name="name" /></label>
+       <label>Age in Years:<input type='text' [(ngModel)]="cat.age" name="age" /></label>
+        <label>Breed: <input type='text' [(ngModel)]="cat.breed" name="breed" /></label>
+        <label>Favorite Toy: <input type='text' [(ngModel)]="cat.favoriteToy" name="favoriteToy" /></label>
+     </form>
+    </div>
+  <p><span>
+    <div class="myDiv">
+    <button style="margin:5px;" (click)="save()">Save</button>
+    <button style="margin:5px;" (click)="goBack()">Go Back</button>
+    </div>
+</span>
+<br>
 <p *ngIf="displayMsg">Cat updated!</p>
+<p *ngIf="displayMsg2">Cat added!</p>
+</body>
+
+
+

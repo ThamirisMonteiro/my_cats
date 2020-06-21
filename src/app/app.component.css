@@ -1,3 +1,12 @@
-.app{
-    border: 4px solid blue;
+header {
+  text-align: center;
 }
+h2 {
+  display: inline-block;
+}
+div#wrapperHeader {
+  width:100%;
+  height:200px;
+  background:url(C:\Users\Tham\Angular\angular-cats\src\images\cat_header.png) no-repeat left center;
+  background-position: center;
+ }
