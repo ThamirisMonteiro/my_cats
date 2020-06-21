@@ -7,6 +7,6 @@ h2 {
 div#wrapperHeader {
   width:100%;
   height:200px;
-  background:url(C:\Users\Tham\Angular\angular-cats\src\images\cat_header.png) no-repeat left center;
+  background:url(../images/cat_header.png) no-repeat left center;
   background-position: center;
  }
