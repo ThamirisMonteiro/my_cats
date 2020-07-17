@@ -47,11 +47,12 @@ export class CatListComponent implements OnInit {
         this.catService.catDeletedEvent.emit(cat);
       })
       .catch((e) => console.error(e));
-    }
-    this.displayMsg = true;
+      this.displayMsg = true;
         setTimeout(() => {
           this.displayMsg = false;
         }, 3000);
+    }
+
   }
 }
 
