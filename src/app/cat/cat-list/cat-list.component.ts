@@ -28,7 +28,7 @@ export class CatListComponent implements OnInit {
     this.catService
       .listCats()
       .then((catListFromDb: Array<Cat>) => {
-        this.catList = catListFromDb;
+        this.catList = catListFromDb.sort((a, b) => a._id.localeCompare(b._id));
       })
       .catch((e) => console.error(e));
   }
@@ -40,19 +40,17 @@ export class CatListComponent implements OnInit {
     } else {
       this.deleteCat = false;
     }
-    if (this.deleteCat)
-    {
-    this.catService.deleteCat(cat._id)
-      .then(() => {
-        this.catService.catDeletedEvent.emit(cat);
-      })
-      .catch((e) => console.error(e));
+    if (this.deleteCat) {
+      this.catService
+        .deleteCat(cat._id)
+        .then(() => {
+          this.catService.catDeletedEvent.emit(cat);
+        })
+        .catch((e) => console.error(e));
       this.displayMsg = true;
-        setTimeout(() => {
-          this.displayMsg = false;
-        }, 3000);
+      setTimeout(() => {
+        this.displayMsg = false;
+      }, 2000);
     }
-
   }
 }
-

@@ -5,8 +5,9 @@ h2 {
   display: inline-block;
 }
 div#wrapperHeader {
-  width:100%;
-  height:200px;
-  background:url(../images/cat_header.png) no-repeat left center;
+  width: 100%;
+  height: 200px;
+  background: url(../images/cat_header.png) no-repeat left center;
   background-position: center;
- }
+  font-family: "Fira Code", monospace;
+}
